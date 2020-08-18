@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 export default createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
     *{
         margin: 0;
         padding: 0;
@@ -13,6 +16,9 @@ export default createGlobalStyle`
     body {
         -webkit-font-smoothing: antialiased;
     }
+    body, input, button {
+        font: 14px 'Ballo 2', sans-serif;
+    }
     a {
         text-decoration: none;
     }
@@ -21,5 +27,8 @@ export default createGlobalStyle`
     }
     li {
         list-style: none;
+    }
+    textarea{
+      resize: none;
     }
 `;

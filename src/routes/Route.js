@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-import Layout from '../pages/layouts/default';
+import AuthLayout from '../pages/layouts/auth';
+import DefaultLayout from '../pages/layouts/default';
 
-import store from '../store';
+import { store } from '../store';
 
 function RouteWrapper({ component: Component, isPrivate, ...rest }) {
   const { signed } = store.getState().auth;
@@ -15,6 +16,7 @@ function RouteWrapper({ component: Component, isPrivate, ...rest }) {
   if (signed && !isPrivate) {
     return <Redirect to="/painel" />;
   }
+  const Layout = signed ? DefaultLayout : AuthLayout;
   return (
     <Route
       {...rest}
