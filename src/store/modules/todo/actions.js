@@ -1,36 +1,36 @@
 export function addRequest(title, description) {
   return {
-    type: '@todo/addRequest',
+    type: '@todo/ADD_REQUEST',
     payload: { title, description },
   };
 }
 
 export function addSuccess(todo) {
   return {
-    type: '@todo/addSuccess',
+    type: '@todo/ADD_SUCCESS',
     payload: todo,
   };
 }
 
 export function actionFailure() {
   return {
-    type: '@todo/actionFailure',
+    type: '@todo/ACTION_FAILURE',
   };
 }
 export function changeModalVisibility(visible) {
   return {
-    type: '@todo/changeModalVisibility',
+    type: '@todo/CHANGE_MODAL_VISIBILITY',
     payload: visible,
   };
 }
 export function listTodoRequest() {
   return {
-    type: '@todo/listRequest',
+    type: '@todo/LIST_REQUEST',
   };
 }
 export function listTodoSuccess(todos) {
   return {
-    type: '@todo/listSuccess',
+    type: '@todo/LIST_SUCCESS',
     payload: todos,
   };
 }

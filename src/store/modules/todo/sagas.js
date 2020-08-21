@@ -29,6 +29,6 @@ export function* listRequest() {
   }
 }
 export default all([
-  takeLatest('@todo/addRequest', addRequest),
-  takeLatest('@todo/listRequest', listRequest),
+  takeLatest('@todo/ADD_REQUEST', addRequest),
+  takeLatest('@todo/LIST_REQUEST', listRequest),
 ]);

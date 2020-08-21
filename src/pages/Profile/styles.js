@@ -27,5 +27,23 @@ export const Container = styled.div`
       border: 2px solid #13a8a8;
       border-radius: 5px;
     }
+    button {
+      margin: 15px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: block;
+      color: #fff;
+      background: #13a8a8;
+      border: none;
+      outline: 0;
+      &:hover {
+        background: ${darken(0.03, '#13a8a8')};
+      }
+    }
+    span {
+      color: #ff0000;
+      text-align: left;
+      margin-left: 20px;
+    }
   }
 `;

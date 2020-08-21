@@ -21,7 +21,7 @@ export default function Dashboard() {
   const modalVisibility = useSelector((state) => state.todo.modalVisibility);
   const todos = useSelector((state) => state.todo.todos);
 
-  const schema = Yup.object({
+  const schema = Yup.object().shape({
     title: Yup.string()
       .min(5, 'Mínimo de 5 caractesres')
       .required('O título é obrigatório'),

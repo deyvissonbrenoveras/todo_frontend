@@ -8,11 +8,11 @@ const INITIAL_STATE = {
 
 export default function todo(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case '@todo/addRequest':
+    case '@todo/ADD_REQUEST':
       return produce(state, (draft) => {
         draft.loading = true;
       });
-    case '@todo/addSuccess':
+    case '@todo/ADD_SUCCESS':
       return produce(state, (draft) => {
         draft.todos.push({
           title: action.payload.title,
@@ -20,15 +20,15 @@ export default function todo(state = INITIAL_STATE, action) {
         });
         draft.loading = false;
       });
-    case '@todo/actionFailure':
+    case '@todo/ACTION_FAILURE':
       return produce(state, (draft) => {
         draft.loading = false;
       });
-    case '@todo/listSuccess':
+    case '@todo/LIST_SUCCESS':
       return produce(state, (draft) => {
         draft.todos = action.payload;
       });
-    case '@todo/changeModalVisibility':
+    case '@todo/CHANGE_MODAL_VISIBILITY':
       return produce(state, (draft) => {
         draft.modalVisibility = action.payload;
       });
