@@ -2,14 +2,9 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+  text-align: center;
   width: 100%;
-  height: 80%;
-  max-width: 600px;
-  margin-top: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: scroll;
-  padding: 10px;
+  height: 100%;
   h2 {
     color: ${darken(0.05, '#13a8a8')};
     width: 100%;
@@ -28,7 +23,7 @@ export const Container = styled.div`
       border-radius: 5px;
     }
     button {
-      margin: 15px;
+      margin: 15px 15px 0 15px;
       padding: 5px 10px;
       border-radius: 5px;
       display: block;
@@ -40,10 +35,16 @@ export const Container = styled.div`
         background: ${darken(0.03, '#13a8a8')};
       }
     }
-    span {
-      color: #ff0000;
-      text-align: left;
-      margin-left: 20px;
+    button:nth-of-type(2) {
+      background: #ff0000;
+      &:hover {
+        background: ${darken(0.03, '#ff0000')};
+      }
     }
+  }
+  span {
+    color: #ff0000;
+    text-align: left;
+    margin-left: 20px;
   }
 `;

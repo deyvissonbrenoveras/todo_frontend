@@ -14,10 +14,7 @@ export default function todo(state = INITIAL_STATE, action) {
       });
     case '@todo/ADD_SUCCESS':
       return produce(state, (draft) => {
-        draft.todos.push({
-          title: action.payload.title,
-          description: action.payload.description,
-        });
+        draft.todos.push(action.payload);
         draft.loading = false;
       });
     case '@todo/ACTION_FAILURE':
@@ -31,6 +28,13 @@ export default function todo(state = INITIAL_STATE, action) {
     case '@todo/CHANGE_MODAL_VISIBILITY':
       return produce(state, (draft) => {
         draft.modalVisibility = action.payload;
+      });
+    case '@todo/UPDATE_SUCCESS':
+      return produce(state, (draft) => {
+        const index = draft.todos.findIndex(
+          (td) => td.id === action.payload.id
+        );
+        draft.todos[index] = action.payload;
       });
     default:
       return state;

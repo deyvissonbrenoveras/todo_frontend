@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
-
-import { Form, Input, Textarea } from '@rocketseat/unform';
 
 import { Fab } from '@material-ui/core';
-import { Add as AddIcon, Close } from '@material-ui/icons';
+import { Add as AddIcon } from '@material-ui/icons';
 
-import { Container, ContainerHeader, TodoList, AddModal } from './styles';
+import ModalTodo from '../../components/ModalTodo';
+import { Container, ContainerHeader, TodoList } from './styles';
 
 import {
   addRequest,
@@ -17,18 +16,8 @@ import {
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const actionLoading = useSelector((state) => state.todo.loading);
-  const modalVisibility = useSelector((state) => state.todo.modalVisibility);
   const todos = useSelector((state) => state.todo.todos);
-
-  const schema = Yup.object().shape({
-    title: Yup.string()
-      .min(5, 'Mínimo de 5 caractesres')
-      .required('O título é obrigatório'),
-    description: Yup.string()
-      .min(5, 'Mínimo de 5 caractesres')
-      .required('A descrição é obrigatória'),
-  });
+  const modalVisibility = useSelector((state) => state.todo.modalVisibility);
 
   useEffect(() => {
     dispatch(listTodoRequest());
@@ -57,13 +46,16 @@ export default function Dashboard() {
       <TodoList>
         {todos &&
           todos.map((todo) => (
-            <li>
-              <h2>{todo.title}</h2>
+            <li key={todo.id}>
+              <Link to={`/tarefa/${todo.id}`}>
+                <h2>{todo.title}</h2>
+              </Link>
               <p>{todo.description}</p>
             </li>
           ))}
       </TodoList>
-      <AddModal isVisible={modalVisibility}>
+      <ModalTodo submitHandle={submitHandle} />
+      {/* <AddModal isVisible={modalVisibility}>
         <button
           type="button"
           onClick={() => dispatch(changeModalVisibility(false))}
@@ -77,7 +69,7 @@ export default function Dashboard() {
             {actionLoading ? 'Salvando...' : 'Salvar'}
           </button>
         </Form>
-      </AddModal>
+      </AddModal> */}
     </Container>
   );
 }

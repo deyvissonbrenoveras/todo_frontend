@@ -9,6 +9,7 @@ import AvatarInput from './AvatarInput';
 import { Container } from './styles';
 
 import { updateProfileRequest } from '../../store/modules/user/actions';
+import { signOut } from '../../store/modules/auth/actions';
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ export default function Profile() {
   function submitHandle(data) {
     dispatch(updateProfileRequest(data));
   }
+  function handleSignOut() {
+    dispatch(signOut());
+  }
   return (
     <Container>
       <h2>Meu perfil</h2>
@@ -50,6 +54,9 @@ export default function Profile() {
           placeholder="Confirmar nova senha"
         />
         <button type="submit">Salvar</button>
+        <button type="button" onClick={handleSignOut}>
+          Sign Out
+        </button>
       </Form>
     </Container>
   );

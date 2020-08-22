@@ -2,49 +2,6 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  text-align: center;
-`;
-
-export const ContainerHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h2 {
-    color: ${darken(0.05, '#13a8a8')};
-    width: 100%;
-  }
-  button {
-    background: #13a8a8;
-    margin-left: auto;
-    &:hover {
-      background: ${darken(0.03, '#13a8a8')};
-    }
-  }
-`;
-
-export const TodoList = styled.ul`
-  padding: 5px;
-  height: 100%;
-  li {
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 3px;
-    margin: 8px 0;
-    padding: 10px 5px;
-    h2 {
-      font-size: 17px;
-      color: #13a8a8;
-      text-align: left;
-      margin: 5px 10px;
-    }
-    p {
-      color: #7d7d7d;
-      text-align: left;
-      margin: 5px 10px;
-    }
-  }
-`;
-
-export const AddModal = styled.div`
   display: ${(props) => (props.isVisible ? 'block' : 'none')};
   position: fixed;
   top: 15%;

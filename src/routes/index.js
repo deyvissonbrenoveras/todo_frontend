@@ -7,6 +7,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
+import Todo from '../pages/Todo';
 
 function Routes() {
   return (
@@ -15,6 +16,7 @@ function Routes() {
       <Route path="/registrar" component={SignUp} />
       <Route path="/painel" isPrivate component={Dashboard} />
       <Route path="/perfil" isPrivate component={Profile} />
+      <Route path="/tarefa/:id" isPrivate component={Todo} />
     </Switch>
   );
 }

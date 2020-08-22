@@ -34,3 +34,22 @@ export function listTodoSuccess(todos) {
     payload: todos,
   };
 }
+export function deleteRequest(id) {
+  return {
+    type: '@todo/DELETE_REQUEST',
+    payload: id,
+  };
+}
+export function updateTodoRequest(id, title, description, done) {
+  return {
+    type: '@todo/UPDATE_REQUEST',
+    payload: { id, title, description, done },
+  };
+}
+
+export function updateTodoSuccess(todo) {
+  return {
+    type: '@todo/UPDATE_SUCCESS',
+    payload: todo,
+  };
+}
